@@ -15,26 +15,103 @@
       <span class="nav-logo">LAM</span>
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#committee">Committee</a></li>
         <li><a href="#events">Events</a></li>
+        <li><a href="#committee">Committee</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO: two photos + title overlay -->
-  <header class="hero-photos">
-    <div class="hero-photo-grid">
-      <img src="lam1.jpeg" alt="LAM happy hour — scholars mingling" />
-      <img src="lam2.jpeg" alt="LAM happy hour — scholars at tables and bar" />
-    </div>
-    <div class="hero-overlay">
-      <p class="hero-label">Informal gatherings for scholars of Latin America</p>
-      <h1>Latin Americanist<br>Meetups</h1>
-      <p class="hero-sub">APSA &amp; MPSA · Since 2024</p>
-      <a href="#events" class="btn">Upcoming Events</a>
+  <!-- HERO: title only -->
+  <header class="hero-text">
+    <div class="container">
+      <h1>Latin Americanist Meetups</h1>
+      <p class="hero-sub">Informal gatherings for scholars of Latin American politics</p>
     </div>
   </header>
+
+  <!-- PHOTOS -->
+  <section class="photos-strip">
+    <div class="container">
+      <div class="photo-pair">
+        <img src="lam1.jpeg" alt="LAM happy hour — scholars mingling" />
+        <img src="lam2.jpeg" alt="LAM happy hour — scholars at tables and bar" />
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="section section-dark">
+    <div class="container">
+      <span class="section-tag light">Gatherings</span>
+      <h2>Events</h2>
+
+      <div class="events-grid">
+
+        <!-- APSA 2026 upcoming -->
+        <div class="event-card featured">
+          <div class="event-badge">Upcoming</div>
+          <div class="event-conf">APSA 2026</div>
+          <h3>LAM Happy Hour</h3>
+          <div class="event-details">
+            <div class="event-detail">
+              <span class="detail-label">Venue</span>
+              <span>Place TBD</span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Date</span>
+              <span>Friday of the conference</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MPSA 2026 past -->
+        <div class="event-card past">
+          <div class="event-badge past-badge">Past</div>
+          <div class="event-conf">MPSA 2026 · Chicago</div>
+          <h3>LAM Happy Hour</h3>
+          <div class="event-details">
+            <div class="event-detail">
+              <span class="detail-label">Venue</span>
+              <span>The Game Room<br><small>Chicago Athletic Association · 12 S Michigan Ave</small></span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Date</span>
+              <span>Friday, April 24, 2026</span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Time</span>
+              <span>Starting at 6:30 PM</span>
+            </div>
+          </div>
+          <p class="event-note">2-minute walk from the Palmer House. Drop-in, no RSVP. Each person covers their own drinks and food.</p>
+        </div>
+
+        <!-- APSA 2025 past -->
+        <div class="event-card past">
+          <div class="event-badge past-badge">Past</div>
+          <div class="event-conf">APSA 2025 · Vancouver</div>
+          <h3>LAM Happy Hour</h3>
+          <div class="event-details">
+            <div class="event-detail">
+              <span class="detail-label">Venue</span>
+              <span>Malone's Social Lounge &amp; Taphouse<br><small>608 W Pender St, Vancouver, BC</small></span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Date</span>
+              <span>Friday, September 12, 2025</span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Time</span>
+              <span>Starting at 6:00 PM</span>
+            </div>
+          </div>
+          <p class="event-note">16-minute walk from the Vancouver Convention Centre.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section id="about" class="section section-light">
@@ -43,7 +120,7 @@
       <div class="about-intro">
         <span class="section-tag">Who we are</span>
         <h2>A Space to Connect</h2>
-        <p class="lead">Latin Americanist Meetups (LAM) is a committee that organizes informal social gatherings at APSA and MPSA. Our goal is to create a relaxed and inclusive space for scholars doing research on Latin America to connect, meet new people, and continue conversations outside of panels and sessions.</p>
+        <p class="lead">Latin Americanist Meetups (LAM) is a committee that organizes informal social gatherings at APSA and MPSA. Our goal is to create a relaxed and inclusive space for scholars doing research on Latin America to connect, meet new people, and continue conversations outside of panels and sessions. We meet every Friday of the conference.</p>
       </div>
 
       <div class="divider"></div>
@@ -51,13 +128,13 @@
       <div class="how-it-works">
         <span class="section-tag">How it works</span>
         <h2>At Every APSA &amp; MPSA</h2>
-        <p class="lead">We organize a happy hour at a venue near the conference hotel. This is an inclusive, drop-in event — everyone is welcome to attend. There's no RSVP required, and each person covers their own drinks and food. Feel free to stop by, circulate among colleagues, and stay as long as you'd like.</p>
-        <div class="pills">
-          <span class="pill">🎙 Drop-in · No RSVP</span>
-          <span class="pill">🌎 Everyone welcome</span>
-          <span class="pill">🍻 Pay your own way</span>
-          <span class="pill">🤝 Faculty, postdocs &amp; grad students</span>
-        </div>
+        <p class="lead">We organize a happy hour at a venue near the conference hotel.</p>
+        <ul class="how-list">
+          <li>This is an inclusive, drop-in event — everyone is welcome to attend</li>
+          <li>No RSVP required</li>
+          <li>Each person covers their own drinks and food</li>
+          <li>Feel free to stop by, circulate among colleagues, and stay as long as you'd like</li>
+        </ul>
       </div>
 
     </div>
@@ -68,7 +145,6 @@
     <div class="container">
       <span class="section-tag">Organizers</span>
       <h2>The LAM Committee</h2>
-      <p class="section-intro">LAM is organized by a small committee of Latin Americanist political scientists committed to building community in the discipline.</p>
 
       <div class="committee-grid">
 
@@ -97,60 +173,6 @@
             <p>University of Maryland</p>
             <a href="https://www.giancarlovisconti.com/" target="_blank" rel="noopener">Website ↗</a>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EVENTS -->
-  <section id="events" class="section section-dark">
-    <div class="container">
-      <span class="section-tag light">Gatherings</span>
-      <h2>Events</h2>
-
-      <div class="events-grid">
-
-        <div class="event-card featured">
-          <div class="event-badge">Upcoming</div>
-          <div class="event-conf">MPSA 2026 · Chicago</div>
-          <h3>LAM Happy Hour</h3>
-          <div class="event-details">
-            <div class="event-detail">
-              <span class="detail-label">📍 Venue</span>
-              <span>The Game Room<br><small>Chicago Athletic Association · 12 S Michigan Ave</small></span>
-            </div>
-            <div class="event-detail">
-              <span class="detail-label">📅 Date</span>
-              <span>Friday, April 24, 2026</span>
-            </div>
-            <div class="event-detail">
-              <span class="detail-label">🕡 Time</span>
-              <span>Starting at 6:30 PM</span>
-            </div>
-          </div>
-          <p class="event-note">Just a 2-minute walk from the Palmer House. Drop-in, no RSVP needed. Each person covers their own drinks and food.</p>
-        </div>
-
-        <div class="event-card past">
-          <div class="event-badge past-badge">Past</div>
-          <div class="event-conf">APSA 2025 · Vancouver</div>
-          <h3>LAM Happy Hour</h3>
-          <div class="event-details">
-            <div class="event-detail">
-              <span class="detail-label">📍 Venue</span>
-              <span>Malone's Social Lounge &amp; Taphouse<br><small>608 W Pender St, Vancouver, BC</small></span>
-            </div>
-            <div class="event-detail">
-              <span class="detail-label">📅 Date</span>
-              <span>Friday, September 12, 2025</span>
-            </div>
-            <div class="event-detail">
-              <span class="detail-label">🕕 Time</span>
-              <span>Starting at 6:00 PM</span>
-            </div>
-          </div>
-          <p class="event-note">16-minute walk from the Vancouver Convention Centre.</p>
         </div>
 
       </div>
