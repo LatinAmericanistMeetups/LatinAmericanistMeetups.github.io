@@ -72,9 +72,10 @@ nav a:hover { color: var(--white); text-decoration: none; }
 }
 .hero-text h1 { color: var(--white); margin-bottom: 0.6rem; text-align: center; }
 .hero-sub {
-  color: rgba(255,255,255,0.85);
+  color: var(--white);
   font-size: 1.1rem;
   font-family: var(--font-body);
+  text-align: center;
 }
 
 /* ── PHOTOS STRIP ── */
