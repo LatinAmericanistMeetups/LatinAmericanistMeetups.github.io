@@ -6,6 +6,22 @@
   <title>Latin Americanist Meetups (LAM)</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Self-contained styles for the announcement banner & event notes (no style.css changes needed) -->
+  <style>
+    .announce { background: #1E4534; color: #F7F1E5; padding: 1.35rem 1rem; text-align: center; font-family: 'Source Sans 3', sans-serif; }
+    .announce-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .announce-eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #F3C77B; }
+    .announce-main { margin: 0; font-size: 1.08rem; font-weight: 300; line-height: 1.5; }
+    .announce-main strong { font-weight: 600; }
+    .announce-main a { color: #F3C77B; text-decoration: underline; text-underline-offset: 3px; }
+    .announce-weather { margin: 0; font-size: .88rem; opacity: .85; }
+    .announce-actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-top: .45rem; }
+    .announce-btn { display: inline-block; padding: .38rem 1rem; border: 1px solid rgba(247,241,229,.45); border-radius: 999px; color: #F7F1E5; text-decoration: none; font-size: .85rem; transition: background .2s ease; }
+    .announce-btn:hover, .announce-btn:focus-visible { background: rgba(247,241,229,.14); }
+    .event-card .venue-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .weather-note { margin-top: .9rem; font-size: .85rem; opacity: .85; }
+  </style>
 </head>
 <body>
 
@@ -21,6 +37,22 @@
       </ul>
     </div>
   </nav>
+
+  <!-- ANNOUNCEMENT: next event -->
+  <section class="announce" aria-label="Next event announcement">
+    <div class="container announce-inner">
+      <span class="announce-eyebrow">Next up · APSA 2026 · Boston</span>
+      <p class="announce-main">
+        <strong>LAM Happy Hour</strong> · Friday, September 4, 2026 · 6:30 PM ·
+        <a href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Night Shift Esplanade Beer Garden</a>
+      </p>
+      <p class="announce-weather">☔ Weather permitting — if it rains, please check this website for updates or a new location.</p>
+      <div class="announce-actions">
+        <a class="announce-btn" href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Venue website ↗</a>
+        <a class="announce-btn" href="https://www.google.com/maps/dir/Hynes+Convention+Center,+900+Boylston+St,+Boston,+MA+02115/Night+Shift+Esplanade,+BOST-0502496000,+Boston,+MA+02116/@42.3519182,-71.0916757,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89e37a0febee848b:0xbce6f9a63000697b!2m2!1d-71.0836482!2d42.3480684!1m5!1m1!1s0x89e37188ea5e298b:0xfdfd6d1c0f801c69!2m2!1d-71.0771043!2d42.3558109!3e2?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Walking directions from Hynes ↗</a>
+      </div>
+    </div>
+  </section>
 
   <!-- HERO: title only -->
   <header class="hero-text">
@@ -122,7 +154,7 @@
           <div class="event-details">
             <div class="event-detail">
               <span class="detail-label">Venue</span>
-              <span>Place TBD</span>
+              <span><a class="venue-link" href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Night Shift Esplanade Beer Garden</a><br><small>Charles River Esplanade, between Berkeley &amp; Clarendon Sts · <a class="venue-link" href="https://www.google.com/maps/dir/Hynes+Convention+Center,+900+Boylston+St,+Boston,+MA+02115/Night+Shift+Esplanade,+BOST-0502496000,+Boston,+MA+02116/@42.3519182,-71.0916757,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89e37a0febee848b:0xbce6f9a63000697b!2m2!1d-71.0836482!2d42.3480684!1m5!1m1!1s0x89e37188ea5e298b:0xfdfd6d1c0f801c69!2m2!1d-71.0771043!2d42.3558109!3e2?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Walking directions from Hynes ↗</a></small></span>
             </div>
             <div class="event-detail">
               <span class="detail-label">Date</span>
@@ -133,6 +165,7 @@
               <span>Starting at 6:30 PM</span>
             </div>
           </div>
+          <p class="weather-note">☔ Weather permitting — in case of rain, please check this website for updates or a new location.</p>
         </div>
 
         <!-- MPSA 2026 past -->
