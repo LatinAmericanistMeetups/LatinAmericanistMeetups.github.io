@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
 
-  <!-- Self-contained styles for the announcement banner & event notes (no style.css changes needed) -->
+  <!-- Self-contained styles for the announcement banner, event notes, photo grid, upcoming-event card & JLAW section (no style.css changes needed) -->
   <style>
     .announce { background: #FAF3E3; color: #2A2520; padding: 1.35rem 1rem; text-align: center; font-family: 'Source Sans 3', sans-serif; border-bottom: 3px solid #1E4534; }
     .announce-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
@@ -21,6 +21,70 @@
     .announce-btn:hover, .announce-btn:focus-visible { background: #163527; }
     .event-card .venue-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .weather-note { margin-top: .9rem; font-size: .85rem; opacity: .85; }
+
+    /* Announcement: second line pointing to the JLAW call */
+    .announce-note { width: 100%; max-width: 760px; margin: .55rem 0 0; padding-top: .8rem; border-top: 1px solid rgba(30,69,52,.25); font-size: .95rem; line-height: 1.5; color: #2A2520; }
+    .announce-note a { color: #1E4534; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .announce-pill { display: inline-block; margin-right: .4rem; padding: .05rem .55rem; border-radius: 999px; background: #1E4534; color: #FFFFFF; font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; vertical-align: .1em; }
+
+    /* Photo grid: 2 x 2 at every width. The object-position on each <img> picks which part of the photo stays visible after cropping (second value: 0% = top, 100% = bottom). */
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .photo-grid img { display: block; width: 100%; height: 260px; object-fit: cover; border-radius: 4px; }
+
+    /* Events: the upcoming card spans the full row; past events sit three across beneath it */
+    .events-grid .event-card.featured { grid-column: 1 / -1; }
+
+    /* JLAW section */
+    .jlaw-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .jlaw-intro h2 { margin-bottom: 1.1rem; }
+    .jlaw-intro .lead { margin-bottom: 0; }
+    .jlaw-details h3 { margin: 2rem 0 .5rem; color: var(--ink); }
+    .jlaw-details h3:first-child { margin-top: 0; }
+    .jlaw-details .how-list { margin: .7rem 0 1.1rem; }
+    .jlaw-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--terra); border-radius: 6px; padding: 1.7rem 1.7rem 1.5rem; }
+    .jlaw-card h3 { font-size: 1.3rem; line-height: 1.3; margin-bottom: .9rem; color: var(--ink); }
+    .jlaw-card p { font-size: .95rem; line-height: 1.55; margin-bottom: .8rem; }
+    .jlaw-card .btn { display: block; text-align: center; padding: .7rem 1rem; margin-bottom: 1.5rem; }
+    .jlaw-card .btn.btn-line { background: transparent; border: 2px solid var(--ink); color: var(--ink) !important; padding: calc(.7rem - 2px) 1rem; }
+    .jlaw-card .btn.btn-line:hover { background: var(--ink); color: var(--white) !important; }
+    .jlaw-card .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .jlaw-card .jlaw-contact { margin: 0; padding-top: 1.1rem; border-top: 1px solid var(--border); font-size: .88rem; }
+    .jlaw-contact a { font-weight: 600; overflow-wrap: anywhere; }
+    .jlaw-people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .jlaw-people h3 { margin: 0 0 .7rem; font-size: 1.05rem; }
+    .jlaw-people ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .jlaw-people li { color: var(--ink); font-weight: 600; line-height: 1.35; }
+    .jlaw-people li span { display: block; font-weight: 400; font-size: .9rem; color: var(--mid); }
+
+    @media (min-width: 901px) {
+      .jlaw-layout { grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto 1fr; column-gap: 3.5rem; }
+      .jlaw-intro { grid-column: 1; grid-row: 1; }
+      .jlaw-details { grid-column: 1; grid-row: 2; }
+      .jlaw-card { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+    }
+    @media (min-width: 901px) and (min-height: 720px) {
+      .jlaw-card { position: sticky; top: 5.5rem; }
+    }
+    @media (min-width: 821px) {
+      .event-card.featured .event-details { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 1rem 4rem; margin-bottom: 0; }
+    }
+    @media (max-width: 820px) {
+      .photo-grid img { height: auto; aspect-ratio: 3 / 2; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: .6rem 1rem; }
+      .nav-inner { flex-direction: column; gap: .15rem; }
+      nav .nav-logo { font-size: 1.15rem; line-height: 1.3; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 0 .9rem; }
+      nav a { font-size: .74rem; letter-spacing: .04em; }
+      .announce .container { padding: 0 .25rem; }
+    }
+    @media (max-width: 560px) {
+      .photos-strip { padding-left: 1rem; padding-right: 1rem; }
+      .photos-strip .container { padding: 0; }
+      .photo-grid { gap: 6px; }
+      .jlaw-people { grid-template-columns: minmax(0, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -33,6 +97,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#committee">Committee</a></li>
         <li><a href="#events">Events</a></li>
+        <li><a href="#jlaw">JLAW</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -41,16 +106,16 @@
   <!-- ANNOUNCEMENT: next event -->
   <section class="announce" aria-label="Next event announcement">
     <div class="container announce-inner">
-      <span class="announce-eyebrow">Next up · APSA 2026 · Boston</span>
+      <span class="announce-eyebrow">Next up · MPSA 2027 · Chicago</span>
       <p class="announce-main">
-        <strong>LAM Happy Hour</strong> · Friday, September 4, 2026 · 6:30 PM ·
-        <a href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Night Shift Esplanade Beer Garden</a>
+        <strong>LAM Happy Hour</strong> · Friday, April 2, 2027 · 6:30 PM ·
+        <a href="https://www.lsdatcaa.com/game-room-chicago" target="_blank" rel="noopener">The Game Room</a> at the Chicago Athletic Association
       </p>
-      <p class="announce-weather">☔ Weather permitting — if it rains, please check this website for updates or a new location.</p>
       <div class="announce-actions">
-        <a class="announce-btn" href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Venue website ↗</a>
-        <a class="announce-btn" href="https://www.google.com/maps/dir/Hynes+Convention+Center,+900+Boylston+St,+Boston,+MA+02115/Night+Shift+Esplanade,+BOST-0502496000,+Boston,+MA+02116/@42.3519182,-71.0916757,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89e37a0febee848b:0xbce6f9a63000697b!2m2!1d-71.0836482!2d42.3480684!1m5!1m1!1s0x89e37188ea5e298b:0xfdfd6d1c0f801c69!2m2!1d-71.0771043!2d42.3558109!3e2?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Walking directions from Hynes ↗</a>
+        <a class="announce-btn" href="https://www.lsdatcaa.com/game-room-chicago" target="_blank" rel="noopener">Venue website ↗</a>
+        <a class="announce-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Palmer+House+Hilton%2C+17+E+Monroe+St%2C+Chicago%2C+IL+60603&amp;destination=Chicago+Athletic+Association%2C+12+S+Michigan+Ave%2C+Chicago%2C+IL+60603&amp;travelmode=walking" target="_blank" rel="noopener">Walking directions from the Palmer House ↗</a>
       </div>
+      <p class="announce-note"><span class="announce-pill">New</span><a href="#jlaw">Junior Latin Americanist Workshops (JLAW)</a> · now accepting applications for Fall 2026</p>
     </div>
   </section>
 
@@ -65,9 +130,11 @@
   <!-- PHOTOS -->
   <section class="photos-strip">
     <div class="container">
-      <div class="photo-pair">
-        <img src="lam1.jpeg" alt="LAM happy hour — scholars mingling" style="height: 240px;" />
-        <img src="lam2.jpeg" alt="LAM happy hour — scholars at tables and bar" style="height: 240px;" />
+      <div class="photo-grid">
+        <img src="apsa2026_1.jpeg" alt="LAM happy hour at APSA 2026 in Boston: attendees gathered under string lights at the Night Shift Esplanade beer garden" style="object-position: 50% 57%;" />
+        <img src="apsa2026_2.jpeg" alt="LAM happy hour at APSA 2026 in Boston: a group of scholars posing together outdoors" style="object-position: 50% 54%;" />
+        <img src="apsa2026_3.jpeg" alt="LAM happy hour at APSA 2026 in Boston: scholars arm in arm under the trees" style="object-position: 50% 67%;" />
+        <img src="apsa2026_4.jpeg" alt="LAM happy hour at APSA 2026 in Boston: smiling attendees with drinks in front of the beer garden's food truck" style="object-position: 50% 83%;" />
       </div>
     </div>
   </section>
@@ -146,15 +213,36 @@
 
       <div class="events-grid">
 
-        <!-- APSA 2026 upcoming -->
+        <!-- MPSA 2027 upcoming -->
         <div class="event-card featured">
           <div class="event-badge">Upcoming</div>
+          <div class="event-conf">MPSA 2027 · Chicago</div>
+          <h3>LAM Happy Hour</h3>
+          <div class="event-details">
+            <div class="event-detail">
+              <span class="detail-label">Venue</span>
+              <span><a class="venue-link" href="https://www.lsdatcaa.com/game-room-chicago" target="_blank" rel="noopener">The Game Room</a><br><small>Chicago Athletic Association, 2nd floor · 12 S Michigan Ave<br><a class="venue-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Palmer+House+Hilton%2C+17+E+Monroe+St%2C+Chicago%2C+IL+60603&amp;destination=Chicago+Athletic+Association%2C+12+S+Michigan+Ave%2C+Chicago%2C+IL+60603&amp;travelmode=walking" target="_blank" rel="noopener">Walking directions from the Palmer House ↗</a></small></span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Date</span>
+              <span>Friday, April 2, 2027</span>
+            </div>
+            <div class="event-detail">
+              <span class="detail-label">Time</span>
+              <span>Starting at 6:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- APSA 2026 past -->
+        <div class="event-card past">
+          <div class="event-badge past-badge">Past</div>
           <div class="event-conf">APSA 2026 · Boston</div>
           <h3>LAM Happy Hour</h3>
           <div class="event-details">
             <div class="event-detail">
               <span class="detail-label">Venue</span>
-              <span><a class="venue-link" href="https://nightshiftbrewing.com/locations/esplanade-beer-garden/" target="_blank" rel="noopener">Night Shift Esplanade Beer Garden</a><br><small>Charles River Esplanade, between Berkeley &amp; Clarendon Sts · <a class="venue-link" href="https://www.google.com/maps/dir/Hynes+Convention+Center,+900+Boylston+St,+Boston,+MA+02115/Night+Shift+Esplanade,+BOST-0502496000,+Boston,+MA+02116/@42.3519182,-71.0916757,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x89e37a0febee848b:0xbce6f9a63000697b!2m2!1d-71.0836482!2d42.3480684!1m5!1m1!1s0x89e37188ea5e298b:0xfdfd6d1c0f801c69!2m2!1d-71.0771043!2d42.3558109!3e2?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Walking directions from Hynes ↗</a></small></span>
+              <span>Night Shift Esplanade Beer Garden<br><small>Charles River Esplanade, between Berkeley &amp; Clarendon Sts</small></span>
             </div>
             <div class="event-detail">
               <span class="detail-label">Date</span>
@@ -165,7 +253,6 @@
               <span>Starting at 6:30 PM</span>
             </div>
           </div>
-          <p class="weather-note">☔ Weather permitting — in case of rain, please check this website for updates or a new location.</p>
         </div>
 
         <!-- MPSA 2026 past -->
@@ -206,6 +293,67 @@
             <div class="event-detail">
               <span class="detail-label">Time</span>
               <span>Starting at 6:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JLAW -->
+  <section id="jlaw" class="section section-light">
+    <div class="container">
+      <div class="jlaw-layout">
+
+        <div class="jlaw-intro">
+          <span class="section-tag">New · Virtual workshops</span>
+          <h2>Junior Latin Americanist Workshops (JLAW)</h2>
+          <p class="lead">The Junior Latin Americanist Workshops (JLAW) is an initiative that seeks to provide opportunities for junior scholars (ABD grad students, postdocs, and pre-tenure faculty) who study Latin American politics to virtually present and get feedback on their work and to network with other scholars with similar interests.</p>
+        </div>
+
+        <aside class="jlaw-card" aria-labelledby="jlaw-call">
+          <span class="section-tag">Applications open</span>
+          <h3 id="jlaw-call">We are now accepting applications for our Fall 2026 first workshops!</h3>
+          <p>If you would like to present your work at a future JLAW session or volunteer to serve as a discussant, submit your info here!</p>
+          <!-- TODO (1 of 2): replace PASTE-APPLICATION-FORM-URL-HERE with the link to the JLAW application form -->
+          <a class="btn" href="PASTE-APPLICATION-FORM-URL-HERE" target="_blank" rel="noopener">Submit your info ↗</a>
+          <p>Sign up for our JLAW mailing list and receive updates on our work!</p>
+          <!-- TODO (2 of 2): replace PASTE-MAILING-LIST-URL-HERE with the mailing list sign-up link -->
+          <a class="btn btn-line" href="PASTE-MAILING-LIST-URL-HERE" target="_blank" rel="noopener">Join the mailing list ↗</a>
+          <p class="jlaw-contact">Please reach out to Vitória Sgorlon with any comments or questions at <a href="mailto:vitoria.sgorlon@stonybrook.edu">vitoria.sgorlon@stonybrook.edu</a></p>
+        </aside>
+
+        <div class="jlaw-details">
+          <h3>The format</h3>
+          <ul class="how-list">
+            <li>Authors present their paper for 10–15 minutes</li>
+            <li>Discussants offer comments for 5–10 minutes</li>
+            <li>Finally, a Q&amp;A</li>
+          </ul>
+          <p>We strongly encourage participants to read the papers in advance since the presentation is short! Our workshops will happen once a month.</p>
+
+          <h3>Call for papers and discussants</h3>
+          <p>We seek submissions of article-length manuscripts from all subfields. Submissions may be solo or collaborative.</p>
+          <p>We are also looking for discussants (junior or senior) to provide feedback.</p>
+
+          <h3>Everyone is welcome</h3>
+          <p>Even though our goal is to showcase and support the work of junior scholars, we welcome everyone in the discipline to attend our events! It can be especially interesting for those on hiring committees seeking to learn about those in the job market.</p>
+
+          <div class="jlaw-people">
+            <div>
+              <h3>Organizers</h3>
+              <ul>
+                <li>Vitória Sgorlon <span>Stony Brook University</span></li>
+                <li>Flávia Batista <span>Duke University</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Associate Organizers</h3>
+              <ul>
+                <li>Giancarlo Visconti <span>University of Maryland</span></li>
+                <li>Nicolás de la Cerda <span>University of New Mexico</span></li>
+              </ul>
             </div>
           </div>
         </div>
