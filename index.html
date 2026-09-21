@@ -44,11 +44,9 @@
     .jlaw-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--terra); border-radius: 6px; padding: 1.7rem 1.7rem 1.5rem; }
     .jlaw-card h3 { font-size: 1.3rem; line-height: 1.3; margin-bottom: .9rem; color: var(--ink); }
     .jlaw-card p { font-size: .95rem; line-height: 1.55; margin-bottom: .8rem; }
-    .jlaw-card .btn { display: block; text-align: center; padding: .7rem 1rem; margin-bottom: 1.5rem; }
-    .jlaw-card .btn.btn-line { background: transparent; border: 2px solid var(--ink); color: var(--ink) !important; padding: calc(.7rem - 2px) 1rem; }
-    .jlaw-card .btn.btn-line:hover { background: var(--ink); color: var(--white) !important; }
+    .jlaw-card .btn { display: block; text-align: center; padding: .7rem 1rem; margin: 1.2rem 0 .7rem; }
     .jlaw-card .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-    .jlaw-card .jlaw-contact { margin: 0; padding-top: 1.1rem; border-top: 1px solid var(--border); font-size: .88rem; }
+    .jlaw-card .jlaw-contact { margin: 0; text-align: center; font-size: .9rem; }
     .jlaw-contact a { font-weight: 600; overflow-wrap: anywhere; }
     .jlaw-people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
     .jlaw-people h3 { margin: 0 0 .7rem; font-size: 1.05rem; }
@@ -84,6 +82,8 @@
       .photos-strip .container { padding: 0; }
       .photo-grid { gap: 6px; }
       .jlaw-people { grid-template-columns: minmax(0, 1fr); }
+      .jlaw-card { padding: 1.5rem 1.25rem 1.3rem; }
+      .jlaw-card .jlaw-contact { font-size: .84rem; }
     }
   </style>
 </head>
@@ -315,13 +315,10 @@
         <aside class="jlaw-card" aria-labelledby="jlaw-call">
           <span class="section-tag">Applications open</span>
           <h3 id="jlaw-call">We are now accepting applications for our Fall 2026 first workshops!</h3>
-          <p>If you would like to present your work at a future JLAW session or volunteer to serve as a discussant, submit your info here!</p>
-          <!-- TODO (1 of 2): replace PASTE-APPLICATION-FORM-URL-HERE with the link to the JLAW application form -->
-          <a class="btn" href="PASTE-APPLICATION-FORM-URL-HERE" target="_blank" rel="noopener">Submit your info ↗</a>
-          <p>Sign up for our JLAW mailing list and receive updates on our work!</p>
-          <!-- TODO (2 of 2): replace PASTE-MAILING-LIST-URL-HERE with the mailing list sign-up link -->
-          <a class="btn btn-line" href="PASTE-MAILING-LIST-URL-HERE" target="_blank" rel="noopener">Join the mailing list ↗</a>
-          <p class="jlaw-contact">Please reach out to Vitória Sgorlon with any comments or questions at <a href="mailto:vitoria.sgorlon@stonybrook.edu">vitoria.sgorlon@stonybrook.edu</a></p>
+          <p>If you would like to present your work at a future JLAW session or volunteer to serve as a discussant, send your info to Vitória Sgorlon.</p>
+          <p>You can also write to her to sign up for our JLAW mailing list and receive updates on our work, or with any comments or questions.</p>
+          <a class="btn" href="mailto:vitoria.sgorlon@stonybrook.edu?subject=JLAW">Email Vitória Sgorlon</a>
+          <p class="jlaw-contact"><a href="mailto:vitoria.sgorlon@stonybrook.edu?subject=JLAW">vitoria.sgorlon@stonybrook.edu</a></p>
         </aside>
 
         <div class="jlaw-details">
